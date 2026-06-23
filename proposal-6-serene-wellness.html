@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propunere 6 — Serene Wellness · Maison Longévité</title>
+    <meta name="description" content="Sinteză a celor mai bune practici din referințele de wellness & longevitate (Longévité Clinic, Longevity Center, Clinique La Prairie): hero imersiv, parcurs numerotat, grilă de tratamente cu hover, spotlight medic. Conținut real Maison Longévité." />
+    <meta name="theme-color" content="#f7f5ef" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============================================================
+         PROPUNERE 6 — "SERENE WELLNESS"
+         Sinteza bunelor practici din referințele (exclusiv Coda:Gene):
+         • Longévité Clinic  → hero lifestyle full-bleed, carduri „de ce noi”,
+                               grilă tratamente cu hover „Descoperă”, spotlight medic.
+         • Longevity Center  → parcurs client numerotat, alb + verde botanic,
+                               grila celor 8 markeri de sănătate.
+         • Clinique La Prairie → minimalism image-forward, spațiere generoasă.
+         Paletă caldă: off-white, verde botanic profund, alamă caldă.
+         Fraunces (serif optic) + Jost. Mobil-first, lux liniștit.
+         ============================================================ */
+      :root {
+        --bg: #f7f5ef;
+        --surface: #ffffff;
+        --surface-2: #eef1ea;
+        --ink: #232a25;
+        --ink-soft: #46504a;
+        --muted: #79817a;
+        --line: #e4e2d6;
+        --green: #5b6f5a;
+        --green-deep: #3d4f3e;
+        --brass: #b08d57;
+        --brass-deep: #7a5f33;
+        --focus: #3d4f3e;
+
+        --font-d: "Fraunces", Georgia, serif;
+        --font-u: "Jost", system-ui, sans-serif;
+
+        /* Modular type scale — ratio 1.25, fluid */
+        --step--2: clamp(0.72rem, 0.69rem + 0.15vw, 0.80rem);
+        --step--1: clamp(0.82rem, 0.78rem + 0.20vw, 0.92rem);
+        --step-0:  clamp(1.02rem, 0.98rem + 0.22vw, 1.14rem);
+        --step-1:  clamp(1.30rem, 1.20rem + 0.45vw, 1.60rem);
+        --step-2:  clamp(1.65rem, 1.45rem + 0.90vw, 2.30rem);
+        --step-3:  clamp(2.10rem, 1.75rem + 1.55vw, 3.30rem);
+        --step-4:  clamp(2.60rem, 2.05rem + 2.50vw, 4.40rem);
+        --step-5:  clamp(3.10rem, 2.25rem + 3.80vw, 5.80rem);
+
+        --sp-1: 0.5rem; --sp-2: 0.75rem; --sp-3: 1rem; --sp-4: 1.5rem;
+        --sp-5: 2rem; --sp-6: 3rem; --sp-7: 4rem; --sp-8: 6rem; --sp-9: 8rem;
+
+        --maxw: 1200px;
+        --pad: clamp(1.15rem, 4vw, 2rem);
+        --radius: 20px;
+        --pill: 999px;
+        --shadow: 0 38px 80px -44px rgba(40, 54, 42, 0.42);
+        --ease: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+      body { font-family: var(--font-u); font-weight: 300; color: var(--ink-soft); background: var(--bg); line-height: 1.8; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+      body.no-scroll { overflow: hidden; }
+      h1, h2, h3, h4 { font-family: var(--font-d); font-weight: 500; line-height: 1.08; color: var(--ink); letter-spacing: 0.005em; }
+      p { color: var(--muted); max-width: 64ch; }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+      .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
+      .section { padding-block: clamp(3.5rem, 8vw, var(--sp-9)); }
+      .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: var(--step--2); font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; color: var(--brass-deep); margin-bottom: var(--sp-4); }
+      .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--brass); }
+      .center .eyebrow { justify-content: center; }
+      .center .eyebrow::before { display: none; }
+      .rule { width: 60px; height: 1px; background: var(--brass); margin: var(--sp-4) 0; }
+      .center { text-align: center; } .center p { margin-inline: auto; } .center .rule { margin-inline: auto; }
+      .head { max-width: 760px; margin-bottom: var(--sp-7); }
+      h2 { font-size: var(--step-4); }
+      .lead { font-size: var(--step-1); color: var(--ink-soft); }
+      .divider { border: 0; border-top: 1px solid var(--line); }
+
+      .btn { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-u); font-weight: 500; font-size: var(--step--1); letter-spacing: 0.16em; text-transform: uppercase; padding: 0.95rem 2rem; border-radius: var(--pill); transition: var(--ease); cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
+      .btn-primary { background: var(--green-deep); color: #fff; }
+      .btn-primary:hover { background: var(--ink); transform: translateY(-2px); }
+      .btn-ghost { border-color: var(--line); color: var(--ink); }
+      .btn-ghost:hover { border-color: var(--brass); color: var(--brass-deep); }
+      .btn-light { background: var(--brass); color: #241c0c; }
+      .btn-light:hover { background: #fff; color: var(--ink); transform: translateY(-2px); }
+      .btn-outline-light { border-color: rgba(255,255,255,0.4); color: #fff; }
+      .btn-outline-light:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+      /* ---------- Header / nav ---------- */
+      .site-header { position: sticky; top: 0; z-index: 60; background: rgba(247, 245, 239, 0.80); backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: var(--ease); }
+      .site-header.scrolled { border-bottom-color: var(--line); background: rgba(247, 245, 239, 0.95); }
+      .nav { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); height: 84px; position: relative; }
+      .brand { font-family: var(--font-d); font-weight: 600; font-size: var(--step-2); letter-spacing: 0.05em; color: var(--ink); white-space: nowrap; }
+      .brand i { color: var(--brass); font-style: normal; }
+      .nav-links { display: flex; align-items: center; gap: clamp(0.85rem, 1.6vw, 1.5rem); list-style: none; }
+      .nav-links a { font-size: var(--step--2); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); transition: color var(--ease); position: relative; }
+      .nav-links > li > a::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 1px; background: var(--brass); transition: width var(--ease); }
+      .nav-links a:hover { color: var(--ink); } .nav-links > li > a:hover::after { width: 100%; }
+      .nav-links .dd { display: inline-block; font-size: 0.6em; margin-left: 0.3em; opacity: 0.55; }
+      /* mega-menu (grouped treatments) */
+      .nav-links .has-mega { position: relative; }
+      .nav-links .has-mega > a { white-space: nowrap; }
+      .nav-links .mega { position: absolute; left: 50%; top: calc(100% + 14px); transform: translateX(-50%) translateY(8px); width: min(880px, 94vw); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: var(--sp-5); opacity: 0; visibility: hidden; pointer-events: none; transition: var(--ease); z-index: 90; }
+      .nav-links .mega::before { content: ""; position: absolute; inset: -14px 0 auto 0; height: 14px; }
+      .nav-links .has-mega:hover .mega, .nav-links .has-mega:focus-within .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+      .nav-links .mega-col { display: flex; flex-direction: column; gap: 0.1rem; }
+      .nav-links .mega-h { font-size: var(--step--2); font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass-deep); margin-bottom: 0.6rem; }
+      .nav-links .mega a { display: block; padding: 0.45rem 0.6rem; border-radius: 11px; font-size: var(--step--1); letter-spacing: 0.01em; text-transform: none; color: var(--ink-soft); white-space: normal; }
+      .nav-links .mega a::after { display: none; }
+      .nav-links .mega a:hover { background: var(--surface-2); color: var(--ink); }
+      .nav-cta { display: inline-flex; }
+      .nav-toggle { display: none; align-items: center; justify-content: center; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: var(--pill); background: var(--surface); cursor: pointer; color: var(--ink); }
+      .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { content: ""; display: block; width: 18px; height: 1.5px; background: currentColor; transition: var(--ease); }
+      .nav-toggle span::before { transform: translateY(-6px); } .nav-toggle span::after { transform: translateY(4.5px); }
+
+      .mobile-nav { position: fixed; inset: 0; z-index: 70; background: rgba(247, 245, 239, 0.98); backdrop-filter: blur(8px); transform: translateY(-100%); transition: transform var(--ease); display: flex; flex-direction: column; padding: var(--pad); overflow-y: auto; }
+      .mobile-nav.open { transform: translateY(0); }
+      .mobile-nav-top { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+      .mobile-close { width: 46px; height: 46px; border: 1px solid var(--line); border-radius: var(--pill); background: var(--surface); color: var(--ink); cursor: pointer; font-size: 1.4rem; line-height: 1; }
+      .mobile-links { list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-5); }
+      .mobile-links .m-group { display: flex; flex-direction: column; }
+      .mobile-links .m-head { font-family: var(--font-d); font-weight: 500; font-size: var(--step-2); color: var(--brass); letter-spacing: 0.02em; padding-block: 0.55rem 0.1rem; }
+      .mobile-links > li > a { font-family: var(--font-d); font-weight: 500; font-size: var(--step-2); color: var(--ink); padding-block: 0.4rem; display: block; }
+      .mobile-links .m-group a { font-family: var(--font-u); font-size: var(--step-0); text-transform: none; letter-spacing: 0.01em; color: var(--ink-soft); padding-block: 0.18rem; }
+      .mobile-links a:hover { color: var(--brass-deep); }
+      .mobile-foot { margin-top: auto; padding-top: var(--sp-5); color: var(--muted); font-size: var(--step--1); display: grid; gap: 0.4rem; }
+      .mobile-foot a { color: var(--brass-deep); }
+
+      /* ---------- Hero (image-forward, full-bleed) ---------- */
+      .hero { position: relative; min-height: clamp(560px, 88vh, 920px); display: grid; align-items: end; color: #fff; background: linear-gradient(155deg, #3d4f3e 0%, #2c3a2e 48%, #455848 100%); overflow: hidden; }
+      .hero::before { content: "Fotografie hero — lifestyle / clinică"; position: absolute; inset: 0; display: grid; align-content: end; justify-items: end; padding: var(--sp-5); text-align: right; color: rgba(255,255,255,0.18); font-size: var(--step--2); letter-spacing: 0.28em; text-transform: uppercase; }
+      .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,38,30,0.30) 0%, transparent 30%, rgba(22,30,24,0.72) 100%); }
+      .hero-inner { position: relative; z-index: 1; padding-block: var(--sp-8) clamp(3rem, 7vw, var(--sp-9)); max-width: 780px; }
+      .hero .eyebrow { color: #e7d3a8; }
+      .hero .eyebrow::before { background: var(--brass); }
+      .hero h1 { font-size: var(--step-5); color: #fff; margin-bottom: var(--sp-4); }
+      .hero h1 em { font-style: italic; font-weight: 400; color: #e7d3a8; }
+      .hero p { font-size: var(--step-1); color: rgba(255,255,255,0.86); margin-bottom: var(--sp-5); max-width: 52ch; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+      .hero-stats { display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, var(--sp-7)); margin-top: var(--sp-7); padding-top: var(--sp-5); border-top: 1px solid rgba(255,255,255,0.18); }
+      .hero-stats div { color: rgba(255,255,255,0.78); font-size: var(--step--1); letter-spacing: 0.04em; max-width: 22ch; }
+      .hero-stats b { display: block; font-family: var(--font-d); font-weight: 600; font-size: var(--step-3); color: #fff; line-height: 1; margin-bottom: 0.3rem; }
+
+      /* ---------- Trust strip ---------- */
+      .strip { border-bottom: 1px solid var(--line); background: var(--surface); }
+      .strip .wrap { display: flex; align-items: center; justify-content: center; gap: clamp(1.25rem, 5vw, var(--sp-8)); padding-block: var(--sp-4); flex-wrap: wrap; }
+      .strip span { font-family: var(--font-u); font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; font-size: var(--step--1); color: var(--muted); }
+
+      /* ---------- Statement ---------- */
+      .statement { text-align: center; max-width: 1000px; margin-inline: auto; }
+      .statement p { font-family: var(--font-d); font-weight: 400; font-size: var(--step-3); line-height: 1.34; color: var(--ink); max-width: none; }
+      .statement p b { color: var(--brass-deep); font-weight: 500; }
+
+      /* ---------- Why (3-up benefits — Longévité Clinic) ---------- */
+      .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+      .why-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--sp-6) var(--sp-5); transition: var(--ease); }
+      .why-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--green); }
+      .why-card .ic { width: 44px; height: 44px; color: var(--green-deep); margin-bottom: var(--sp-4); }
+      .why-card h3 { font-size: var(--step-2); margin-bottom: var(--sp-2); }
+      .why-card p { font-size: var(--step-0); }
+
+      /* ---------- Journey (numbered steps — Longevity Center) ---------- */
+      .journey { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); position: relative; }
+      .journey::before { content: ""; position: absolute; top: 22px; left: 8%; right: 8%; height: 1px; background: var(--line); z-index: 0; }
+      .step { position: relative; z-index: 1; text-align: center; }
+      .step .num { width: 46px; height: 46px; margin: 0 auto var(--sp-3); border-radius: 50%; border: 1px solid var(--brass); background: var(--bg); color: var(--brass-deep); display: grid; place-items: center; font-family: var(--font-d); font-weight: 600; font-size: var(--step-0); }
+      .step h3 { font-size: var(--step-1); margin-bottom: var(--sp-1); }
+      .step p { font-size: var(--step--1); margin-inline: auto; max-width: 26ch; }
+
+      /* ---------- Method markers (8) ---------- */
+      .markers { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-3); }
+      .marker { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--sp-5) var(--sp-4); transition: var(--ease); }
+      .marker:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--green); background: var(--surface); }
+      .marker .n { font-family: var(--font-d); font-weight: 600; font-size: var(--step-2); color: var(--brass-deep); }
+      .marker h3 { font-size: var(--step-0); font-family: var(--font-u); font-weight: 500; color: var(--ink); margin-top: var(--sp-2); line-height: 1.45; }
+
+      /* ---------- Services (treatment grid w/ hover Discover) ---------- */
+      .svc { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+      .svc-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--sp-6) var(--sp-5); transition: var(--ease); display: flex; flex-direction: column; }
+      .svc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--brass); }
+      .svc-card .ic { width: 46px; height: 46px; color: var(--green-deep); margin-bottom: var(--sp-4); }
+      .svc-card h3 { font-size: var(--step-2); margin-bottom: var(--sp-2); }
+      .svc-card p { font-size: var(--step-0); }
+      .svc-more { margin-top: var(--sp-4); font-family: var(--font-u); font-weight: 500; font-size: var(--step--1); letter-spacing: 0.16em; text-transform: uppercase; color: var(--brass-deep); display: inline-flex; align-items: center; gap: 0.5rem; opacity: 0; transform: translateY(6px); transition: var(--ease); }
+      .svc-card:hover .svc-more { opacity: 1; transform: translateY(0); }
+      .svc-more svg { width: 16px; height: 16px; }
+
+      /* ---------- Doctor spotlight (image-forward) ---------- */
+      .doctor { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, var(--sp-8)); align-items: center; }
+      .doctor-media { aspect-ratio: 4/5; border-radius: var(--radius); background: linear-gradient(160deg, #e7e4da, #d7ddcf); position: relative; border: 1px solid var(--line); box-shadow: var(--shadow); order: 2; }
+      .doctor-media::after { content: "Dr. Mihaela Marinescu"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: var(--step--2); letter-spacing: 0.16em; text-transform: uppercase; }
+      .doctor blockquote { font-family: var(--font-d); font-weight: 400; font-size: var(--step-3); line-height: 1.3; color: var(--ink); margin-bottom: var(--sp-4); }
+      .doctor cite { font-style: normal; font-size: var(--step--1); letter-spacing: 0.16em; text-transform: uppercase; color: var(--brass-deep); }
+
+      /* ---------- CTA band ---------- */
+      .cta-band { background: var(--green-deep); color: #fff; border-radius: var(--radius); padding: clamp(3rem, 7vw, var(--sp-8)) var(--pad); text-align: center; position: relative; overflow: hidden; }
+      .cta-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 90% at 50% 0%, rgba(176,141,87,0.30), transparent 60%); }
+      .cta-band > * { position: relative; }
+      .cta-band .eyebrow { color: #e7d3a8; justify-content: center; }
+      .cta-band .eyebrow::before { background: var(--brass); }
+      .cta-band h2 { color: #fff; font-size: var(--step-4); margin-bottom: var(--sp-4); }
+      .cta-band p { color: rgba(255,255,255,0.82); margin-inline: auto; margin-bottom: var(--sp-5); }
+      .cta-meta { display: flex; gap: var(--sp-5); justify-content: center; flex-wrap: wrap; margin-top: var(--sp-5); color: rgba(255,255,255,0.72); font-size: var(--step-0); }
+      .cta-meta a { color: #e7d3a8; }
+
+      /* ---------- Footer ---------- */
+      footer { background: var(--surface-2); border-top: 1px solid var(--line); padding-block: var(--sp-7) var(--sp-4); }
+      .fgrid { display: grid; grid-template-columns: 1.7fr 1fr 1.3fr; gap: var(--sp-5); padding-bottom: var(--sp-5); border-bottom: 1px solid var(--line); }
+      .fbrand { font-family: var(--font-d); font-weight: 600; font-size: var(--step-2); color: var(--ink); margin-bottom: var(--sp-3); }
+      .fbrand i { color: var(--brass); font-style: normal; }
+      .ftitle { font-size: var(--step--2); letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass-deep); margin-bottom: var(--sp-3); }
+      footer ul { list-style: none; } footer li { margin-bottom: 0.55rem; font-size: var(--step-0); color: var(--muted); }
+      footer li a:hover { color: var(--brass-deep); }
+      .fbottom { padding-top: var(--sp-4); font-size: var(--step--2); letter-spacing: 0.05em; color: var(--muted); display: flex; justify-content: space-between; gap: var(--sp-3); }
+      .fsoc { display: flex; gap: 0.5rem; margin-top: 0.7rem; }
+      .fsoc a { width: 32px; height: 32px; border: 1px solid color-mix(in srgb, currentColor 32%, transparent); border-radius: 50%; display: grid; place-items: center; color: inherit; opacity: 0.82; transition: opacity .25s ease, border-color .25s ease; }
+      .fsoc a:hover { opacity: 1; border-color: currentColor; }
+      .fsoc svg { width: 15px; height: 15px; }
+
+      [data-r] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+      [data-r].in { opacity: 1; transform: none; }
+
+      @media (max-width: 980px) {
+        .doctor { grid-template-columns: 1fr; }
+        .doctor-media { order: -1; max-width: 440px; margin-inline: auto; }
+        .why { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+        .journey { grid-template-columns: repeat(2, 1fr); }
+        .journey::before { display: none; }
+        .markers { grid-template-columns: repeat(2, 1fr); }
+        .svc { grid-template-columns: 1fr 1fr; }
+        .fgrid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 1080px) { .nav-links, .nav-cta { display: none; } .nav-toggle { display: inline-flex; } }
+      @media (max-width: 560px) {
+        .svc, .markers, .journey { grid-template-columns: 1fr; }
+        .fgrid { grid-template-columns: 1fr; }
+        .fbottom { flex-direction: column; text-align: center; }
+        .cta-meta { flex-direction: column; gap: var(--sp-2); }
+      }
+      @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } [data-r] { opacity: 1 !important; transform: none !important; transition: none !important; } }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="wrap nav">
+        <a class="brand" href="#top">Maison<i> · </i>Longévité</a>
+        <ul class="nav-links">
+          <li><a href="#medic">Despre</a></li>
+          <li class="has-mega"><a href="#servicii">Tratamente<span class="dd">▾</span></a>
+            <div class="mega">
+              <div class="mega-col">
+                <span class="mega-h">Medicina Longevității</span>
+                <a href="#">Medicina longevității / slow aging</a>
+                <a href="#">Terapia Gerovital H3</a>
+                <a href="#">Terapii intravenoase</a>
+                <a href="#">Fototerapie cu lumină LED</a>
+              </div>
+              <div class="mega-col">
+                <span class="mega-h">Specialități medicale</span>
+                <a href="#">Geriatrie și Gerontologie</a>
+                <a href="#">Dermatologie estetică și Dermatovenerologie</a>
+                <a href="#">Estetică regenerativă</a>
+                <a href="#">Nutriție personalizată</a>
+                <a href="#">Recoltare analize laborator</a>
+              </div>
+              <div class="mega-col">
+                <span class="mega-h">Proceduri estetice</span>
+                <a href="#">Laser CO2</a>
+                <a href="#">Laser Morpheus</a>
+                <a href="#">Terapia cu plasmă PRP</a>
+                <a href="#">Dermapen</a>
+                <a href="#">Terapii estetice injectabile</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">Prețuri</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="#contact">Programare</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobileNav"><span></span></button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <div class="mobile-nav-top">
+        <a class="brand" href="#top" data-close>Maison<i> · </i>Longévité</a>
+        <button class="mobile-close" id="navClose" aria-label="Închide meniul">&times;</button>
+      </div>
+      <ul class="mobile-links">
+        <li><a href="#top" data-close>Acasă</a></li>
+        <li class="m-group">
+          <span class="m-head">Despre noi</span>
+          <a href="#" data-close>Echipa</a>
+        </li>
+        <li class="m-group">
+          <span class="m-head">Medicina Longevității</span>
+          <a href="#" data-close>Medicina longevității / slow aging</a>
+          <a href="#" data-close>Terapia Gerovital H3</a>
+          <a href="#" data-close>Terapii intravenoase</a>
+          <a href="#" data-close>Fototerapie cu lumină LED</a>
+        </li>
+        <li class="m-group">
+          <span class="m-head">Specialități medicale</span>
+          <a href="#" data-close>Geriatrie și Gerontologie</a>
+          <a href="#" data-close>Dermatologie estetică și Dermatovenerologie</a>
+          <a href="#" data-close>Estetică regenerativă</a>
+          <a href="#" data-close>Nutriție personalizată</a>
+          <a href="#" data-close>Recoltare analize laborator</a>
+        </li>
+        <li class="m-group">
+          <span class="m-head">Proceduri estetice</span>
+          <a href="#" data-close>Laser CO2</a>
+          <a href="#" data-close>Laser Morpheus</a>
+          <a href="#" data-close>Terapia cu plasmă PRP</a>
+          <a href="#" data-close>Dermapen</a>
+          <a href="#" data-close>Terapii estetice injectabile</a>
+        </li>
+        <li><a href="#" data-close>Prețuri</a></li>
+        <li><a href="#" data-close>Blog</a></li>
+        <li><a href="#contact" data-close>Programare</a></li>
+      </ul>
+      <div class="mobile-foot">
+        <a href="tel:0790869158">0790 869 158</a>
+        <a href="mailto:office@maisonlongevite.ro">office@maisonlongevite.ro</a>
+        <span>București, Sector 1 — Complex Win Herăstrău</span>
+      </div>
+    </div>
+
+    <main>
+      <!-- HERO: image-forward full-bleed (Longévité Clinic + Clinique La Prairie) -->
+      <section class="hero">
+        <div class="wrap hero-inner" data-r>
+          <span class="eyebrow">Medicina longevității</span>
+          <h1>Centru medical de excelență în <em>medicina longevității</em></h1>
+          <p>Sănătatea abordată integrativ, personalizat și pe termen lung — combinând evaluarea medicală avansată cu intervenții adaptate fiecărui pacient.</p>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="#contact">Programează o consultație</a>
+            <a class="btn btn-outline-light" href="#metoda">Descoperă Metoda</a>
+          </div>
+          <div class="hero-stats">
+            <div><b>8</b>dimensiuni evaluate, de la fizic la molecular</div>
+            <div><b>6</b>specialități medicale integrate</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="strip">
+        <div class="wrap"><span>Geriatrie</span><span>Dermatologie</span><span>Slow-Aging</span><span>Nutriție</span><span>Estetică Regenerativă</span></div>
+      </div>
+
+      <!-- PHILOSOPHY: sparse statement (Clinique La Prairie) -->
+      <section class="section">
+        <div class="wrap statement center" data-r>
+          <span class="eyebrow">Filozofia noastră</span>
+          <p>Longevitatea nu înseamnă doar ani în plus, ci ani trăiți cu <b>claritate, energie și sens</b>.</p>
+        </div>
+      </section>
+
+      <!-- WHY: 3-up benefits (Longévité Clinic „Why choose”) -->
+      <section class="section" style="background:var(--surface)">
+        <div class="wrap">
+          <div class="head center" data-r>
+            <span class="eyebrow">De ce Maison Longévité</span>
+            <h2>O casă a longevității</h2>
+            <div class="rule"></div>
+          </div>
+          <div class="why">
+            <div class="why-card" data-r>
+              <div class="ic"><svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+              <h3>Abordare integrativă</h3>
+              <p>Sănătatea privită ca un întreg — de la nivel fizic până la cel molecular.</p>
+            </div>
+            <div class="why-card" data-r>
+              <div class="ic"><svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></div>
+              <h3>Personalizare pe date</h3>
+              <p>Intervenții construite pe realitatea biologică și ritmul fiecărui pacient.</p>
+            </div>
+            <div class="why-card" data-r>
+              <div class="ic"><svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 21s-7-4.3-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.7-9 9-9 9z"/></svg></div>
+              <h3>Acompaniere pe termen lung</h3>
+              <p>Monitorizare și ajustare continuă, pentru o îmbătrânire sănătoasă în timp.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOURNEY: numbered client steps (Longevity Center) -->
+      <section class="section">
+        <div class="wrap">
+          <div class="head center" data-r>
+            <span class="eyebrow">Parcurs</span>
+            <h2>Cum lucrăm împreună</h2>
+            <div class="rule"></div>
+            <p>Un parcurs clar, de la prima consultație până la monitorizarea pe termen lung.</p>
+          </div>
+          <div class="journey">
+            <div class="step" data-r><span class="num">01</span><h3>Consultație</h3><p>Discuție inițială și stabilirea obiectivelor.</p></div>
+            <div class="step" data-r><span class="num">02</span><h3>Evaluare</h3><p>Analiză medicală, stil de viață și biomarkeri.</p></div>
+            <div class="step" data-r><span class="num">03</span><h3>Plan personalizat</h3><p>Intervenții adaptate profilului tău biologic.</p></div>
+            <div class="step" data-r><span class="num">04</span><h3>Monitorizare</h3><p>Ajustare și acompaniere medicală în timp.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- METHOD: 8 health markers (Longevity Center) -->
+      <section class="section" id="metoda" style="background:var(--surface)">
+        <div class="wrap">
+          <div class="head center" data-r>
+            <span class="eyebrow">Metoda Maison Longévité</span>
+            <h2>Abordare total-health, de la fizic la molecular</h2>
+            <div class="rule"></div>
+            <p>O evaluare completă a organismului, urmată de intervenții personalizate adaptate realității biologice și ritmului fiecărui pacient.</p>
+          </div>
+          <div class="markers">
+            <div class="marker" data-r><span class="n">01</span><h3>Evaluare medicală, stil de viață &amp; biomarkeri</h3></div>
+            <div class="marker" data-r><span class="n">02</span><h3>Vârsta biologică și metabolică</h3></div>
+            <div class="marker" data-r><span class="n">03</span><h3>Nutriție personalizată</h3></div>
+            <div class="marker" data-r><span class="n">04</span><h3>Somn și ritm biologic</h3></div>
+            <div class="marker" data-r><span class="n">05</span><h3>Management emoțional</h3></div>
+            <div class="marker" data-r><span class="n">06</span><h3>Funcții cognitive</h3></div>
+            <div class="marker" data-r><span class="n">07</span><h3>Sănătatea și regenerarea pielii</h3></div>
+            <div class="marker" data-r><span class="n">08</span><h3>Medicină personalizată de gen</h3></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES: treatment grid w/ hover „Descoperă” (Longévité Clinic) -->
+      <section class="section" id="servicii">
+        <div class="wrap">
+          <div class="head center" data-r>
+            <span class="eyebrow">Servicii</span>
+            <h2>Specialități integrate medical</h2>
+            <div class="rule"></div>
+          </div>
+          <div class="svc">
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 21s-7-4.3-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.7-9 9-9 9z"/></svg></div><h3>Geriatrie &amp; Gerontologie</h3><p>Management medical pentru o îmbătrânire sănătoasă și funcțională.</p><a class="svc-more" href="#">Descoperă <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg></div><h3>Dermatologie estetică &amp; Dermatovenerologie</h3><p>Sănătatea pielii, integrată medical ca parte a longevității.</p><a class="svc-more" href="#">Descoperă <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3v18M5 8l7-5 7 5"/></svg></div><h3>Medicina Longevității / Slow-Aging</h3><p>Planuri personalizate pe date biologice și monitorizare în timp.</p><a class="svc-more" href="#">Descoperă <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 3h12l-1 7a5 5 0 01-10 0z"/><path d="M9 21h6"/></svg></div><h3>Nutriție personalizată</h3><p>Optimizarea metabolismului prin recomandări adaptate profilului tău.</p><a class="svc-more" href="#">Descoperă <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2 6 6 .5-4.5 4 1.5 6-5-3.2-5 3.2 1.5-6L4 8.5 10 8z"/></svg></div><h3>Estetică Regenerativă</h3><p>Proceduri regenerative, integrate ca elemente ale longevității funcționale.</p><a class="svc-more" href="#">Descoperă <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 3h6v5l4 9a2 2 0 01-2 3H7a2 2 0 01-2-3l4-9z"/></svg></div><h3>Recoltare analize laborator</h3><p>Biomarkeri și monitorizare, baza fiecărui plan de longevitate.</p><a class="svc-more" href="#">Descoperă <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOCTOR spotlight: image-forward (Longévité Clinic founder) -->
+      <section class="section" id="medic" style="background:var(--surface)">
+        <div class="wrap">
+          <div class="doctor" data-r>
+            <div>
+              <span class="eyebrow">Director Medical</span>
+              <blockquote>„Maison Longévité este o casă a longevității, un loc în care învățăm să avem grijă de timp.”</blockquote>
+              <p>Îmbătrânirea este un proces care poate fi înțeles și ghidat printr-o medicină personalizată, în care prevenția și calitatea vieții devin priorități reale.</p>
+              <cite>— Dr. Mihaela Marinescu, Director Medical</cite>
+            </div>
+            <div class="doctor-media"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="wrap">
+          <div class="cta-band" data-r>
+            <span class="eyebrow">Programări</span>
+            <h2>Programați o consultație</h2>
+            <p class="lead">Completați formularul și vă vom contacta pentru stabilirea detaliilor programării solicitate.</p>
+            <div class="hero-actions" style="justify-content:center">
+              <a class="btn btn-light" href="tel:0790869158">Sunați acum</a>
+              <a class="btn btn-outline-light" href="mailto:office@maisonlongevite.ro">Scrieți-ne</a>
+            </div>
+            <div class="cta-meta">
+              <span><a href="tel:0790869158">0790 869 158</a></span>
+              <span><a href="mailto:office@maisonlongevite.ro">office@maisonlongevite.ro</a></span>
+              <span>București, Sector 1 — Complex Win Herăstrău</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="fgrid">
+          <div>
+            <p class="fbrand">Maison<i> · </i>Longévité</p>
+            <p style="max-width:36ch">Centru medical de excelență în medicina longevității. Sănătate abordată integrativ, personalizat și pe termen lung.</p>
+          </div>
+          <div>
+            <p class="ftitle">Navigare</p>
+            <ul><li><a href="#metoda">Metoda</a></li><li><a href="#servicii">Servicii</a></li><li><a href="#medic">Echipa</a></li><li><a href="#contact">Contact</a></li></ul>
+          </div>
+          <div>
+            <p class="ftitle">Contact</p>
+            <ul>
+              <li>București, Sector 1, Intrarea Gliei Nr. 18 — Complex Win Herăstrău</li>
+              <li><a href="tel:0790869158">0790 869 158</a></li>
+              <li><a href="mailto:office@maisonlongevite.ro">office@maisonlongevite.ro</a></li>
+              <li class="fsoc">
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.45-.13-2.45 0-4.1 1.5-4.1 4.2v2.2H7.3V13h2.85v8h3.35z"/></svg></a>
+                <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+                <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2zm4.7-6.1c-.26-.13-1.5-.74-1.74-.82-.23-.09-.4-.13-.57.13-.17.25-.65.82-.8.99-.15.17-.3.19-.55.06-.26-.13-1.08-.4-2.05-1.27-.76-.67-1.27-1.5-1.42-1.76-.15-.25-.02-.39.11-.51.11-.11.26-.3.38-.44.13-.15.17-.25.26-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.38-.78-1.88-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1s.9 2.42 1.03 2.6c.13.17 1.77 2.71 4.3 3.8.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.5-.61 1.71-1.2.21-.59.21-1.1.15-1.21-.06-.1-.23-.16-.48-.29z"/></svg></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="fbottom"><span>© 2026 Maison Longévité. Toate drepturile rezervate.</span><span>Propunere 6 — Serene Wellness</span></div>
+      </div>
+    </footer>
+
+    <script>
+      const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
+      document.querySelectorAll("[data-r]").forEach(el => io.observe(el));
+      const header = document.querySelector(".site-header");
+      const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+      window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+      const body = document.body, nav = document.getElementById("mobileNav"), toggle = document.getElementById("navToggle"), close = document.getElementById("navClose");
+      const openNav = () => { nav.classList.add("open"); nav.setAttribute("aria-hidden","false"); toggle.setAttribute("aria-expanded","true"); body.classList.add("no-scroll"); };
+      const closeNav = () => { nav.classList.remove("open"); nav.setAttribute("aria-hidden","true"); toggle.setAttribute("aria-expanded","false"); body.classList.remove("no-scroll"); };
+      toggle.addEventListener("click", openNav); close.addEventListener("click", closeNav);
+      nav.querySelectorAll("[data-close]").forEach(a => a.addEventListener("click", closeNav));
+      document.addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("open")) closeNav(); });
+    </script>
+  </body>
+</html>

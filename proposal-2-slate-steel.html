@@ -102,20 +102,56 @@
       .site-header { position: sticky; top: 0; z-index: 60; background: rgba(255, 255, 255, 0.86); backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: var(--ease); }
       .site-header.scrolled { border-bottom-color: var(--line); background: rgba(255, 255, 255, 0.96); }
       .nav { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); height: 84px; }
-      .brand { display: inline-flex; align-items: center; gap: 0.7rem; font-weight: 400; font-size: var(--step-2); letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
+      .brand { display: inline-flex; align-items: center; gap: 0.7rem; font-weight: 400; font-size: var(--step-2); letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); white-space: nowrap; }
       .brand .mark { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--steel); display: grid; place-items: center; position: relative; }
       .brand .mark::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--steel); }
       .nav-right { display: flex; align-items: center; gap: var(--sp-4); }
+      .nav-links { display: none; gap: var(--sp-5); list-style: none; }
+      .nav-links a { font-weight: 400; font-size: var(--step--1); letter-spacing: 0.16em; text-transform: uppercase; color: var(--steel); transition: var(--ease); position: relative; }
+      .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -7px; width: 0; height: 1px; background: var(--slate); transition: width var(--ease); }
+      .nav-links a:hover { color: var(--slate); } .nav-links a:hover::after { width: 100%; }
+      /* real-site dropdown menu */
+      .nav-links { align-items: center; }
+      .nav-links > li > a { font-size: var(--step--2); letter-spacing: 0.14em; }
+      .nav-links .has-sub { position: relative; }
+      .nav-links .dd { display: inline-block; font-size: 0.62em; margin-left: 0.34em; opacity: 0.6; }
+      .nav-links .sub { position: absolute; top: calc(100% + 18px); left: 50%; transform: translateX(-50%) translateY(8px); min-width: 252px; list-style: none; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); padding: 0.5rem; opacity: 0; visibility: hidden; pointer-events: none; transition: var(--ease); z-index: 90; }
+      .nav-links .sub::before { content: ""; position: absolute; inset: -18px 0 auto 0; height: 18px; }
+      .nav-links .has-sub:hover .sub, .nav-links .has-sub:focus-within .sub { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+      .nav-links .sub a { display: block; padding: 0.55rem 0.8rem; font-size: var(--step--1); letter-spacing: 0.04em; text-transform: none; color: var(--ink-soft); white-space: nowrap; font-weight: 400; }
+      .nav-links .sub a::after { display: none; }
+      .nav-links .sub a:hover { background: var(--light); color: var(--slate); }
+      /* mega-menu (grouped treatments) */
+      .nav { position: relative; }
+      .nav-links .has-mega { position: relative; }
+      .nav-links .has-mega > a { white-space: nowrap; }
+      .nav-links .mega { position: absolute; left: 50%; top: calc(100% + 14px); transform: translateX(-50%) translateY(8px); width: min(860px, 94vw); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); padding: var(--sp-5); opacity: 0; visibility: hidden; pointer-events: none; transition: var(--ease); z-index: 90; }
+      .nav-links .mega::before { content: ""; position: absolute; inset: -14px 0 auto 0; height: 14px; }
+      .nav-links .has-mega:hover .mega, .nav-links .has-mega:focus-within .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+      .nav-links .mega-col { display: flex; flex-direction: column; gap: 0.1rem; }
+      .nav-links .mega-h { font-weight: 500; font-size: var(--step--2); letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel); margin-bottom: 0.6rem; }
+      .nav-links .mega a { display: block; padding: 0.45rem 0.6rem; font-weight: 400; font-size: var(--step--1); letter-spacing: 0.03em; text-transform: none; color: var(--ink-soft); white-space: normal; }
+      .nav-links .mega a::after { display: none; }
+      .nav-links .mega a:hover { background: var(--light); color: var(--slate); }
+      .mobile-links .m-group { display: flex; flex-direction: column; }
+      .mobile-links .m-head { font-weight: 400; font-size: var(--step-1); letter-spacing: 0.14em; text-transform: uppercase; color: var(--mist); padding-block: 0.6rem 0.15rem; }
+      .mobile-links .m-group a { font-size: var(--step-0); letter-spacing: 0.08em; color: var(--on-dark-soft); }
+      .nav-cta { display: none; }
       .socials { display: flex; gap: 0.6rem; }
       .socials a { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; color: var(--steel); transition: var(--ease); font-size: var(--step--2); }
       .socials a:hover { border-color: var(--steel); color: var(--slate); }
       .menu-btn { display: inline-flex; align-items: center; gap: 0.7rem; background: transparent; border: 1px solid var(--line); border-radius: var(--pill); padding: 0.6rem 1.1rem; cursor: pointer; color: var(--slate); font-family: var(--font); font-weight: 500; font-size: var(--step--1); letter-spacing: 0.18em; text-transform: uppercase; transition: var(--ease); }
       .menu-btn:hover { border-color: var(--steel); }
+      @media (min-width: 1080px) {
+        .nav-links { display: flex; }
+        .nav-cta { display: inline-flex; }
+        .menu-btn { display: none; }
+      }
       .menu-btn .bars { display: inline-flex; flex-direction: column; gap: 4px; }
       .menu-btn .bars span { width: 18px; height: 1.5px; background: currentColor; }
 
       /* ---- Mobile / full menu overlay ---- */
-      .mobile-nav { position: fixed; inset: 0; z-index: 70; background: rgba(43, 49, 53, 0.98); backdrop-filter: blur(10px); transform: translateY(-100%); transition: transform var(--ease); display: flex; flex-direction: column; padding: var(--pad); color: var(--on-dark); }
+      .mobile-nav { position: fixed; inset: 0; z-index: 70; background: rgba(43, 49, 53, 0.98); backdrop-filter: blur(10px); transform: translateY(-100%); transition: transform var(--ease); display: flex; flex-direction: column; padding: var(--pad); color: var(--on-dark); overflow-y: auto; }
       .mobile-nav.open { transform: translateY(0); }
       .mobile-nav-top { display: flex; align-items: center; justify-content: space-between; height: 84px; }
       .mobile-nav-top .brand { color: var(--on-dark); } .mobile-nav-top .brand .mark { border-color: var(--mist); } .mobile-nav-top .brand .mark::before { background: var(--mist); }
@@ -231,6 +267,10 @@
       footer ul { list-style: none; } footer li { margin-bottom: 0.55rem; font-size: var(--step-0); }
       footer li a:hover { color: var(--mist); }
       .fbottom { padding-top: var(--sp-4); font-size: var(--step--2); letter-spacing: 0.08em; color: rgba(255,255,255,0.4); display: flex; justify-content: space-between; gap: var(--sp-3); }
+      .fsoc { display: flex; gap: 0.5rem; margin-top: 0.7rem; }
+      .fsoc a { width: 32px; height: 32px; border: 1px solid color-mix(in srgb, currentColor 32%, transparent); border-radius: 50%; display: grid; place-items: center; color: inherit; opacity: 0.82; transition: opacity .25s ease, border-color .25s ease; }
+      .fsoc a:hover { opacity: 1; border-color: currentColor; }
+      .fsoc svg { width: 15px; height: 15px; }
 
       [data-r] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
       [data-r].in { opacity: 1; transform: none; }
@@ -263,13 +303,46 @@
   <body>
     <header class="site-header" id="top">
       <div class="wrap nav">
-        <a class="brand" href="#top"><span class="mark"></span>Maison Longévité</a>
+        <a class="brand" href="#top">Maison Longévité</a>
+        <ul class="nav-links">
+          <li><a href="#despre">Despre</a></li>
+          <li class="has-mega"><a href="#servicii">Tratamente<span class="dd">▾</span></a>
+            <div class="mega">
+              <div class="mega-col">
+                <span class="mega-h">Medicina Longevității</span>
+                <a href="#">Medicina longevității / slow aging</a>
+                <a href="#">Terapia Gerovital H3</a>
+                <a href="#">Terapii intravenoase</a>
+                <a href="#">Fototerapie cu lumină LED</a>
+              </div>
+              <div class="mega-col">
+                <span class="mega-h">Specialități medicale</span>
+                <a href="#">Geriatrie și Gerontologie</a>
+                <a href="#">Dermatologie estetică și Dermatovenerologie</a>
+                <a href="#">Estetică regenerativă</a>
+                <a href="#">Nutriție personalizată</a>
+                <a href="#">Recoltare analize laborator</a>
+              </div>
+              <div class="mega-col">
+                <span class="mega-h">Proceduri estetice</span>
+                <a href="#">Laser CO2</a>
+                <a href="#">Laser Morpheus</a>
+                <a href="#">Terapia cu plasmă PRP</a>
+                <a href="#">Dermapen</a>
+                <a href="#">Terapii estetice injectabile</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">Prețuri</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
         <div class="nav-right">
           <div class="socials">
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Instagram">ig</a>
-            <a href="#" aria-label="WhatsApp">wa</a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.45-.13-2.45 0-4.1 1.5-4.1 4.2v2.2H7.3V13h2.85v8h3.35z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2zm4.7-6.1c-.26-.13-1.5-.74-1.74-.82-.23-.09-.4-.13-.57.13-.17.25-.65.82-.8.99-.15.17-.3.19-.55.06-.26-.13-1.08-.4-2.05-1.27-.76-.67-1.27-1.5-1.42-1.76-.15-.25-.02-.39.11-.51.11-.11.26-.3.38-.44.13-.15.17-.25.26-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.38-.78-1.88-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1s.9 2.42 1.03 2.6c.13.17 1.77 2.71 4.3 3.8.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.5-.61 1.71-1.2.21-.59.21-1.1.15-1.21-.06-.1-.23-.16-.48-.29z"/></svg></a>
           </div>
+          <a class="btn btn-line nav-cta" href="#contact">Programare</a>
           <button class="menu-btn" id="navToggle" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobileNav"><span class="bars"><span></span><span></span></span>Meniu</button>
         </div>
       </div>
@@ -281,12 +354,37 @@
         <button class="mobile-close" id="navClose" aria-label="Închide meniul">&times;</button>
       </div>
       <ul class="mobile-links">
-        <li><a href="#metoda" data-close>Metoda</a></li>
-        <li><a href="#dimensiuni" data-close>Cele 8 dimensiuni</a></li>
-        <li><a href="#servicii" data-close>Servicii</a></li>
-        <li><a href="#medic" data-close>Echipa medicală</a></li>
-        <li><a href="#pareri" data-close>Păreri</a></li>
-        <li><a href="#contact" data-close>Contact</a></li>
+        <li><a href="#top" data-close>Acasă</a></li>
+        <li class="m-group">
+          <span class="m-head">Despre noi</span>
+          <a href="#" data-close>Echipa</a>
+        </li>
+        <li class="m-group">
+          <span class="m-head">Medicina Longevității</span>
+          <a href="#" data-close>Medicina longevității / slow aging</a>
+          <a href="#" data-close>Terapia Gerovital H3</a>
+          <a href="#" data-close>Terapii intravenoase</a>
+          <a href="#" data-close>Fototerapie cu lumină LED</a>
+        </li>
+        <li class="m-group">
+          <span class="m-head">Specialități medicale</span>
+          <a href="#" data-close>Geriatrie și Gerontologie</a>
+          <a href="#" data-close>Dermatologie estetică și Dermatovenerologie</a>
+          <a href="#" data-close>Estetică regenerativă</a>
+          <a href="#" data-close>Nutriție personalizată</a>
+          <a href="#" data-close>Recoltare analize laborator</a>
+        </li>
+        <li class="m-group">
+          <span class="m-head">Proceduri estetice</span>
+          <a href="#" data-close>Laser CO2</a>
+          <a href="#" data-close>Laser Morpheus</a>
+          <a href="#" data-close>Terapia cu plasmă PRP</a>
+          <a href="#" data-close>Dermapen</a>
+          <a href="#" data-close>Terapii estetice injectabile</a>
+        </li>
+        <li><a href="#" data-close>Prețuri</a></li>
+        <li><a href="#" data-close>Blog</a></li>
+        <li><a href="#contact" data-close>Programare</a></li>
       </ul>
       <div class="mobile-foot">
         <a href="tel:0790869158">0790 869 158</a>
@@ -300,9 +398,9 @@
       <section class="hero">
         <div class="wrap hero-inner">
           <div class="socials">
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Instagram">ig</a>
-            <a href="#" aria-label="WhatsApp">wa</a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.45-.13-2.45 0-4.1 1.5-4.1 4.2v2.2H7.3V13h2.85v8h3.35z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2zm4.7-6.1c-.26-.13-1.5-.74-1.74-.82-.23-.09-.4-.13-.57.13-.17.25-.65.82-.8.99-.15.17-.3.19-.55.06-.26-.13-1.08-.4-2.05-1.27-.76-.67-1.27-1.5-1.42-1.76-.15-.25-.02-.39.11-.51.11-.11.26-.3.38-.44.13-.15.17-.25.26-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.38-.78-1.88-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1s.9 2.42 1.03 2.6c.13.17 1.77 2.71 4.3 3.8.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.5-.61 1.71-1.2.21-.59.21-1.1.15-1.21-.06-.1-.23-.16-.48-.29z"/></svg></a>
           </div>
           <h1 data-r>Medicina<br/>Longevității</h1>
           <p class="sub" data-r>Evaluează · Optimizează · Regenerează</p>
@@ -336,11 +434,11 @@
       </div>
 
       <!-- FOUNDER / DOCTOR INTRO -->
-      <section class="section">
+      <section class="section" id="despre">
         <div class="wrap">
           <div class="intro-grid">
             <div class="intro-media" data-r></div>
-            <div data-r>
+            <div data-r id="medic">
               <span class="eyebrow">Director Medical</span>
               <h2 style="font-size:var(--step-3)">Dr. Mihaela Marinescu</h2>
               <div class="rule"></div>
@@ -500,7 +598,11 @@
               <li>București, Sector 1, Intrarea Gliei Nr. 18 — Complex Win Herăstrău</li>
               <li><a href="tel:0790869158">0790 869 158</a></li>
               <li><a href="mailto:office@maisonlongevite.ro">office@maisonlongevite.ro</a></li>
-              <li>Facebook · Instagram · WhatsApp</li>
+              <li class="fsoc">
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.45-.13-2.45 0-4.1 1.5-4.1 4.2v2.2H7.3V13h2.85v8h3.35z"/></svg></a>
+                <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+                <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2zm4.7-6.1c-.26-.13-1.5-.74-1.74-.82-.23-.09-.4-.13-.57.13-.17.25-.65.82-.8.99-.15.17-.3.19-.55.06-.26-.13-1.08-.4-2.05-1.27-.76-.67-1.27-1.5-1.42-1.76-.15-.25-.02-.39.11-.51.11-.11.26-.3.38-.44.13-.15.17-.25.26-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.38-.78-1.88-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1s.9 2.42 1.03 2.6c.13.17 1.77 2.71 4.3 3.8.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.5-.61 1.71-1.2.21-.59.21-1.1.15-1.21-.06-.1-.23-.16-.48-.29z"/></svg></a>
+              </li>
             </ul>
           </div>
         </div>
