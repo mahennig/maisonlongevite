@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5 Propuneri de design — Maison Longévité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f4f1ec; --ink: #2a2c27; --muted: #6c6f63; --line: #e2ddd2;
+        --font-d: "Cormorant Garamond", serif; --font-u: "Jost", sans-serif;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: var(--font-u); font-weight: 300; background: var(--bg); color: var(--ink); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+      .wrap { max-width: 1100px; margin-inline: auto; padding: 4rem 1.5rem; }
+      h1 { font-family: var(--font-d); font-weight: 500; font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.1; }
+      .eyebrow { font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase; color: #6f7d5e; margin-bottom: 1rem; display: block; }
+      .intro { max-width: 60ch; color: var(--muted); margin-top: 1rem; }
+      p { color: var(--muted); max-width: 62ch; }
+      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+      .card { background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; transition: 0.4s cubic-bezier(.22,1,.36,1); }
+      .card:hover { transform: translateY(-6px); box-shadow: 0 26px 60px -34px rgba(42,44,39,0.4); }
+      .swatch { height: 120px; display: flex; }
+      .swatch span { flex: 1; }
+      .body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+      .tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #97704f; }
+      .card h2 { font-family: var(--font-d); font-weight: 500; font-size: 1.7rem; margin: 0.3rem 0 0.6rem; }
+      .card p { font-size: 0.95rem; flex: 1; }
+      .meta { font-size: 0.82rem; color: var(--muted); margin-top: 1rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+      .meta b { color: var(--ink); font-weight: 500; }
+      .btn { display: inline-block; text-align: center; margin-top: 1.25rem; padding: 0.85rem 1.5rem; border-radius: 999px; background: #6f7d5e; color: #fff; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; transition: 0.3s; }
+      .btn:hover { background: var(--ink); }
+      .note { margin-top: 3rem; padding: 1.5rem; background: #fff; border: 1px solid var(--line); border-radius: 14px; font-size: 0.92rem; }
+      .note h3 { font-family: var(--font-d); font-weight: 500; font-size: 1.4rem; margin-bottom: 0.5rem; }
+      .note ul { margin: 0.75rem 0 0 1.1rem; } .note li { margin-bottom: 0.4rem; }
+      .legacy { margin-top: 2rem; font-size: 0.85rem; color: var(--muted); } .legacy a { color: #6f7d5e; }
+      @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <span class="eyebrow">Propuneri de design — homepage</span>
+      <h1>Cinci direcții pentru Maison Longévité</h1>
+      <p class="intro">Toate cinci folosesc <b>conținutul real al site-ului</b> (hero, Metoda Maison Longévité în 8 dimensiuni, serviciile reale, citatul Dr. Mihaela Marinescu și datele de contact reale) și se inspiră din <b>site-urile de referință</b> — în special coda-gene.com. Diferă prin atmosferă: cât de luminoase sau întunecate, serif vs. sans, clinic vs. editorial vs. wellness.</p>
+      <p class="intro" style="margin-top:0.75rem">Toate au fost <b>rafinate pentru UX 10/10</b>: un <b>design system comun</b> (scală tipografică modulară 1.25 + scală de spațiere de 8px), <b>meniu mobil real</b> (hamburger + panou full-screen, ESC, blocare scroll), header lipicios cu umbră la scroll, stări de focus accesibile și animații de intrare blânde. <b>Propunerea 2 (Slate &amp; Steel)</b> este reconstruită după <b>site-ul real coda-gene.com</b> — paleta monocromă rece (oțel/ardezie, fără auriu), Red Hat Display subțire și diagrama orbitală. Deschideți fiecare și comparați pe desktop și pe mobil — putem combina elemente din mai multe.</p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="swatch"><span style="background:#fbf9f4"></span><span style="background:#8f9d7c"></span><span style="background:#bf9f63"></span><span style="background:#1c1c1a"></span></div>
+          <div class="body">
+            <span class="tag">Propunere 1</span>
+            <h2>Ivory Serif</h2>
+            <p>Direcția nativă a brief-ului: ivory cald, sage + gold discret, serif elegant. Lumină, aer, rafinament, cu o singură bandă întunecată pentru dramatism.</p>
+            <div class="meta"><b>Type:</b> Cormorant Garamond + Jost<br/><b>Ideal pentru:</b> eleganță luminoasă, conform brief-ului</div>
+            <a class="btn" href="proposal-1-ivory-serif.html">Vezi Propunerea 1 →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="swatch"><span style="background:#2b3135"></span><span style="background:#707c87"></span><span style="background:#bacad3"></span><span style="background:#f7f8f9"></span></div>
+          <div class="body">
+            <span class="tag">Propunere 2 · ★ Flagship Coda·Gene</span>
+            <h2>Slate &amp; Steel</h2>
+            <p>Reconstruit după site-ul <b>real</b> coda-gene.com: monocrom rece (ardezie, oțel, alb), Red Hat Display <b>subțire</b> ALL-CAPS cu tracking larg, diagramă orbitală în hero, motivul <b>RE:</b>, header minimal cu buton „Meniu”, benzi trusted-by. Fără auriu — exact ca originalul.</p>
+            <div class="meta"><b>Type:</b> Red Hat Display (100–500)<br/><b>Ideal pentru:</b> prestigiu &amp; fidelitate maximă față de referință</div>
+            <a class="btn" href="proposal-2-slate-steel.html">Vezi Propunerea 2 →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="swatch"><span style="background:#ffffff"></span><span style="background:#5d7a55"></span><span style="background:#e7efe2"></span><span style="background:#b89752"></span></div>
+          <div class="body">
+            <span class="tag">Propunere 3</span>
+            <h2>Clinical Sage</h2>
+            <p>Inspirat de longevity-center.eu: aspect curat, științific. Alb + verde sage, parcurs numerotat în 4 etape, grilă de markeri, statistici. Încredere medicală.</p>
+            <div class="meta"><b>Type:</b> Fraunces + Inter<br/><b>Ideal pentru:</b> claritate &amp; credibilitate științifică</div>
+            <a class="btn" href="proposal-3-clinical-sage.html">Vezi Propunerea 3 →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="swatch"><span style="background:#f5f1ea"></span><span style="background:#8a7257"></span><span style="background:#b89256"></span><span style="background:#211e1a"></span></div>
+          <div class="body">
+            <span class="tag">Propunere 4</span>
+            <h2>Warm Editorial</h2>
+            <p>Lux minimal, image-forward (à la Clinique La Prairie): champagne &amp; stone cald, titluri mari serif, layout asimetric de revistă, numere editoriale.</p>
+            <div class="meta"><b>Type:</b> Playfair Display + Jost<br/><b>Ideal pentru:</b> rafinament editorial &amp; fotografie</div>
+            <a class="btn" href="proposal-4-warm-editorial.html">Vezi Propunerea 4 →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="swatch"><span style="background:#f7f4ee"></span><span style="background:#87977a"></span><span style="background:#ead9c8"></span><span style="background:#65775a"></span></div>
+          <div class="body">
+            <span class="tag">Propunere 5</span>
+            <h2>Soft Botanical</h2>
+            <p>Wellness cald (à la longeviteclinic.co.uk): forme rotunjite, salvie &amp; blush, blob-uri organice, tonuri blânde. Cel mai cald &amp; accesibil din set, încă elegant.</p>
+            <div class="meta"><b>Type:</b> Marcellus + Jost<br/><b>Ideal pentru:</b> căldură &amp; apropiere de pacient</div>
+            <a class="btn" href="proposal-5-soft-botanical.html">Vezi Propunerea 5 →</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="note">
+        <h3>Recomandarea mea</h3>
+        <p>Pentru brief-ul „foarte luminos și elegant”, <b>Propunerea 1 (Ivory Serif)</b> este cea mai sigură alegere. Dacă vreți să fiți <b>cât mai aproape de coda-gene</b>, mergeți pe <b>Propunerea 2 (Slate &amp; Steel)</b> — reconstruită după site-ul real, cu paleta monocromă rece și diagrama orbitală. O rută foarte puternică: <b>1 sau 3 pentru paginile luminoase + benzi întunecate în stil 2 pentru hero și CTA</b>. După ce alegeți, integrez tokenele, tipografia și componentele în site-ul real.</p>
+      </div>
+
+      <div class="note" style="background:#faf6ee;border-color:#ecdfc7">
+        <h3>Am nevoie de câteva clarificări</h3>
+        <ul>
+          <li><b>Limbă:</b> propunerile sunt în <b>română</b> (conform conținutului real). Confirmați RO, sau doriți și o variantă EN / bilingvă?</li>
+          <li><b>Fotografii &amp; logo:</b> toate imaginile sunt placeholdere — avem nevoie de fotografia doctorului, fotografii de interior și logo-ul final.</li>
+          <li><b>Biografia &amp; titlurile doctorului:</b> avem citatul, dar nu CV-ul / specializările Dr. Marinescu.</li>
+          <li><b>Lista de servicii:</b> am folosit cele 6 din homepage; meniul are și pagini-stub (anti-aging, terapii IV/IM, mică chirurgie etc.) fără text — confirmați ce intră în navigație.</li>
+          <li><b>Structură:</b> one-page (ca aceste drafturi) sau multi-page?</li>
+        </ul>
+      </div>
+
+      <p class="legacy">Set anterior (placeholder EN, axat exclusiv pe coda-gene): <a href="option-a-onyx-gold.html">Option A</a> · <a href="option-b-ivory-gold.html">Option B</a> · <a href="option-c-midnight-editorial.html">Option C</a></p>
+    </div>
+  </body>
+</html>

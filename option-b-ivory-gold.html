@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mockup B — Ivory &amp; Gold</title>
+    <meta name="description" content="Homepage design proposal B — Coda:Gene luxe rendered very light. Ivory, gold hairlines, serif ALL-CAPS display." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============================================================
+         OPTION B — "Ivory & Gold"  (Coda:Gene, rendered very light)
+         Mood: the coda-gene luxe — stacked ALL-CAPS display, gold hairline
+         rules, wide tracking, section rhythm — but on a light ivory canvas
+         with serif elegance, honouring the client's "very light, elegant
+         colours". Only a single restrained dark band for drama.
+         Type: Cormorant Garamond (serif display) + Jost (body).
+         ============================================================ */
+      :root {
+        --bg: #f8f5ef;           /* warm ivory */
+        --surface: #ffffff;
+        --ink: #23262e;          /* soft ink */
+        --ink-deep: #14171c;
+        --muted: #6b6e72;
+        --line: #e6e0d4;
+        --gold: #b8923f;         /* warm gold */
+        --gold-soft: #d8c191;
+        --gold-tint: #f2ead8;
+
+        --font-display: "Cormorant Garamond", Georgia, serif;
+        --font-ui: "Jost", system-ui, sans-serif;
+
+        --t--1: 0.78rem;
+        --t-0: 1rem;
+        --t-1: 1.25rem;
+        --t-2: 1.6rem;
+        --t-3: 2.1rem;
+        --t-4: 2.8rem;
+        --t-5: 3.6rem;
+        --t-hero: clamp(3rem, 8vw, 5.6rem);
+
+        --sp-2: 1rem; --sp-3: 1.5rem; --sp-4: 2.5rem; --sp-5: 4rem; --sp-6: 7rem;
+        --shadow: 0 30px 70px -38px rgba(35, 38, 46, 0.4);
+        --ease: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        --maxw: 1200px;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { font-family: var(--font-ui); font-weight: 300; color: var(--ink); background: var(--bg); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+      h1, h2, h3 { font-family: var(--font-display); font-weight: 500; text-transform: uppercase; line-height: 1.15; }
+      p { color: var(--muted); max-width: 60ch; }
+      a { color: inherit; text-decoration: none; }
+
+      .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 1.5rem; }
+      .section { padding-block: var(--sp-6); }
+      .eyebrow { font-family: var(--font-ui); font-weight: 500; font-size: var(--t--1); letter-spacing: 0.36em; text-transform: uppercase; color: var(--gold); display: inline-block; margin-bottom: var(--sp-3); }
+      .rule { width: 58px; height: 1px; background: var(--gold); margin: var(--sp-3) 0; }
+      .center { text-align: center; } .center p { margin-inline: auto; } .center .rule { margin-inline: auto; }
+      .head { max-width: 760px; margin-bottom: var(--sp-5); }
+      h2 { font-size: var(--t-4); letter-spacing: 0.14em; }
+      .divider { border: 0; border-top: 1px solid var(--line); }
+
+      .btn { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--font-ui); font-weight: 400; font-size: var(--t--1); letter-spacing: 0.2em; text-transform: uppercase; padding: 1.05rem 2.1rem; transition: var(--ease); cursor: pointer; border: 1px solid transparent; }
+      .btn-gold { background: var(--gold); color: #fff; }
+      .btn-gold:hover { background: var(--ink); }
+      .btn-line { border-color: var(--ink); color: var(--ink); }
+      .btn-line:hover { border-color: var(--gold); color: var(--gold); }
+      .btn-line-light { border-color: rgba(255,255,255,0.4); color: #fff; }
+      .btn-line-light:hover { border-color: var(--gold-soft); color: var(--gold-soft); }
+
+      /* ---------- Header ---------- */
+      header { position: sticky; top: 0; z-index: 50; background: rgba(248,245,239,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+      .nav { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+      .brand { font-family: var(--font-display); font-weight: 600; font-size: var(--t-3); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+      .brand i { color: var(--gold); font-style: normal; }
+      .nav-links { display: flex; gap: var(--sp-4); list-style: none; }
+      .nav-links a { font-size: var(--t--1); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); transition: color var(--ease); }
+      .nav-links a:hover { color: var(--gold); }
+      .nav .btn-gold { padding-block: 0.8rem; }
+
+      /* ---------- Hero (light, airy) ---------- */
+      .hero { position: relative; overflow: hidden;
+        background: radial-gradient(70% 60% at 82% 12%, var(--gold-tint) 0%, transparent 60%),
+                    radial-gradient(60% 70% at 0% 100%, #f1ece1 0%, transparent 55%); }
+      .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--sp-5); align-items: center; padding-block: var(--sp-6); }
+      .hero h1 { font-size: var(--t-hero); color: var(--ink); letter-spacing: 0.04em; margin-bottom: var(--sp-3); }
+      .hero h1 em { font-style: italic; text-transform: none; color: var(--gold); }
+      .hero p { font-size: var(--t-1); margin-bottom: var(--sp-4); }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+      .hero-media { aspect-ratio: 4/5; overflow: hidden; box-shadow: var(--shadow); background: linear-gradient(150deg, #efe9dc, #f7f3ea); position: relative; border: 1px solid var(--gold-soft); }
+      .hero-media::after { content: "Portrait / hero photo"; position: absolute; inset: 0; display: grid; place-items: center; color: #c2b48f; font-size: var(--t--1); letter-spacing: 0.24em; text-transform: uppercase; }
+
+      /* ---------- Philosophy statement ---------- */
+      .statement { text-align: center; max-width: 900px; margin-inline: auto; }
+      .statement p { font-family: var(--font-display); font-weight: 400; font-size: var(--t-3); line-height: 1.5; color: var(--ink); max-width: none; }
+
+      /* ---------- Trusted-by ---------- */
+      .marquee { border-block: 1px solid var(--line); background: var(--surface); }
+      .marquee .wrap { display: flex; align-items: center; justify-content: center; gap: clamp(1.5rem, 5vw, var(--sp-6)); padding-block: var(--sp-3); flex-wrap: wrap; }
+      .marquee span { font-family: var(--font-display); font-style: italic; font-size: var(--t-1); color: #b6a983; }
+
+      /* ---------- Method: RE: pillars ---------- */
+      .pillars { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+      .pillar { padding: var(--sp-5) var(--sp-4); border-right: 1px solid var(--line); transition: var(--ease); }
+      .pillar:last-child { border-right: none; }
+      .pillar:hover { background: var(--surface); }
+      .pillar .num { font-family: var(--font-display); font-size: var(--t-3); color: var(--gold); }
+      .pillar h3 { font-size: var(--t-2); letter-spacing: 0.18em; margin: var(--sp-2) 0; }
+      .pillar h3 b { color: var(--gold); font-weight: 500; }
+      .pillar p { font-size: var(--t-0); }
+
+      /* ---------- Why choose ---------- */
+      .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+      .why .item { text-align: center; }
+      .why .ic { width: 54px; height: 54px; color: var(--gold); margin: 0 auto var(--sp-3); }
+      .why h3 { font-size: var(--t-2); letter-spacing: 0.14em; margin-bottom: var(--sp-2); }
+      .why p { font-size: var(--t-0); margin-inline: auto; }
+
+      /* ---------- Doctor split ---------- */
+      .split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); align-items: center; }
+      .split-media { aspect-ratio: 5/6; background: linear-gradient(150deg, #eae3d4, #f6f1e7); position: relative; box-shadow: var(--shadow); border: 1px solid var(--line); }
+      .split-media::after { content: "Dr. portrait"; position: absolute; inset: 0; display: grid; place-items: center; color: #c2b48f; font-size: var(--t--1); letter-spacing: 0.22em; text-transform: uppercase; }
+
+      /* ---------- Quote (single dark band) ---------- */
+      .quote-band { background: linear-gradient(160deg, #1a1d24, #14171c); color: #fff; position: relative; overflow: hidden; }
+      .quote-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 70% at 50% 0%, rgba(184,146,63,0.22), transparent 62%); }
+      .quote { position: relative; text-align: center; max-width: 840px; margin-inline: auto; }
+      .quote .eyebrow { color: var(--gold-soft); }
+      .quote blockquote { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: var(--t-4); line-height: 1.4; text-transform: none; color: #fff; margin-bottom: var(--sp-3); }
+      .quote cite { font-style: normal; font-size: var(--t--1); letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+
+      /* ---------- Press ---------- */
+      .press .wrap { display: flex; align-items: center; justify-content: center; gap: clamp(1.5rem, 5vw, var(--sp-5)); flex-wrap: wrap; }
+      .press span { font-family: var(--font-display); font-size: var(--t-2); letter-spacing: 0.06em; color: #bdb29a; }
+
+      /* ---------- CTA ---------- */
+      .cta-band { background: linear-gradient(160deg, var(--gold-tint), #f6efe1); border: 1px solid var(--gold-soft); padding: var(--sp-6) var(--sp-3); text-align: center; }
+      .cta-band h2 { font-size: var(--t-5); letter-spacing: 0.08em; margin-bottom: var(--sp-3); }
+      .cta-band p { margin-inline: auto; margin-bottom: var(--sp-4); }
+
+      /* ---------- Footer ---------- */
+      footer { background: var(--ink-deep); color: rgba(255,255,255,0.66); padding-block: var(--sp-5) var(--sp-3); }
+      .fgrid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: var(--sp-4); padding-bottom: var(--sp-4); border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .fbrand { font-family: var(--font-display); font-weight: 600; font-size: var(--t-3); color: #fff; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: var(--sp-2); }
+      .fbrand i { color: var(--gold-soft); font-style: normal; }
+      .ftitle { font-size: var(--t--1); letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: var(--sp-2); }
+      footer ul { list-style: none; } footer li { margin-bottom: 0.5rem; font-size: var(--t-0); }
+      .fbottom { padding-top: var(--sp-3); font-size: var(--t--1); letter-spacing: 0.08em; color: rgba(255,255,255,0.42); display: flex; justify-content: space-between; gap: var(--sp-2); }
+
+      [data-r] { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+      [data-r].in { opacity: 1; transform: none; }
+
+      @media (max-width: 900px) {
+        .hero-grid, .split { grid-template-columns: 1fr; }
+        .hero-media { order: -1; max-width: 440px; margin-inline: auto; }
+        .pillars, .why { grid-template-columns: 1fr; }
+        .pillar { border-right: none; border-bottom: 1px solid var(--line); }
+        .pillar:last-child { border-bottom: none; }
+        .fgrid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 620px) {
+        .nav-links, .nav > .btn-gold { display: none; }
+        .fgrid { grid-template-columns: 1fr; }
+        .fbottom { flex-direction: column; text-align: center; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="#">MAISON<i> · </i>LONGÉVITÉ</a>
+        <ul class="nav-links">
+          <li><a href="#">Method</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">The Doctor</a></li>
+          <li><a href="#">Results</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <a class="btn btn-gold" href="#">Book consultation</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div data-r>
+          <span class="eyebrow">Personalised longevity medicine</span>
+          <h1>Decode your biology.<br /><em>Redefine</em> how you age.</h1>
+          <p>A discreet, science-led practice for those who expect precision and discretion in equal measure — medicine engineered around your unique blueprint.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#">Book a consultation</a>
+            <a class="btn btn-line" href="#">Discover the method</a>
+          </div>
+        </div>
+        <div class="hero-media" data-r></div>
+      </div>
+    </section>
+
+    <div class="marquee">
+      <div class="wrap"><span>The Times</span><span>Forbes</span><span>Vogue</span><span>Business Insider</span><span>Nature</span></div>
+    </div>
+
+    <section class="section">
+      <div class="wrap statement center" data-r>
+        <span class="eyebrow">Our philosophy</span>
+        <p>We believe true longevity is not about adding years — it is about understanding the blueprint you were born with, and refining it with precision, science and care.</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="section">
+      <div class="wrap">
+        <div class="head center" data-r>
+          <span class="eyebrow">The method</span>
+          <h2>Three pillars of transformation</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="pillars">
+          <div class="pillar" data-r><span class="num">01</span><h3>Re<b>:</b>lease</h3><p>Uncover the root causes — not the symptoms — through advanced diagnostics.</p></div>
+          <div class="pillar" data-r><span class="num">02</span><h3>Re<b>:</b>set</h3><p>Establish new pathways with a plan tuned to your biology and your life.</p></div>
+          <div class="pillar" data-r><span class="num">03</span><h3>Re<b>:</b>design</h3><p>Sustain measurable gains in clarity, energy and longevity over time.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--surface)">
+      <div class="wrap">
+        <div class="head center" data-r>
+          <span class="eyebrow">Why choose us</span>
+          <h2>The difference is in the detail</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="why">
+          <div class="item" data-r>
+            <div class="ic"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div>
+            <h3>Experience</h3><p>Decades of clinical and research expertise, applied with discretion.</p>
+          </div>
+          <div class="item" data-r>
+            <div class="ic"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg></div>
+            <h3>Reliability</h3><p>Evidence-led, measurable care you can trust at every step.</p>
+          </div>
+          <div class="item" data-r>
+            <div class="ic"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 21s-7-4.3-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.7-9 9-9 9z"/></svg></div>
+            <h3>Compassion</h3><p>Unhurried, deeply human care centred entirely on you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="section">
+      <div class="wrap split">
+        <div class="split-media" data-r></div>
+        <div data-r>
+          <span class="eyebrow">The doctor</span>
+          <h2>Decades of precision &amp; care</h2>
+          <div class="rule"></div>
+          <p>Placeholder biography. The doctor brings extensive clinical and research experience, combining the latest science with a calm, deeply human approach.</p>
+          <p style="margin-top:1rem">Credentials and specialities will be added from the client's materials.</p>
+          <a class="btn btn-line" style="margin-top:1.75rem" href="#">Meet the doctor</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote-band">
+      <div class="wrap quote" data-r>
+        <span class="eyebrow">Results</span>
+        <blockquote>&ldquo;Having one session here is equivalent to years elsewhere — a true unlock.&rdquo;</blockquote>
+        <cite>— Managing Director, Europe &amp; USA</cite>
+      </div>
+    </section>
+
+    <section class="section press">
+      <div class="wrap" data-r>
+        <span>The Times</span><span>Forbes</span><span>Vogue</span><span>Tatler</span>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="cta-band" data-r>
+          <span class="eyebrow">Take the first step</span>
+          <h2>Begin your transformation</h2>
+          <p>Book an initial consultation — whether you have a question or are ready to start, we are here to guide you.</p>
+          <a class="btn btn-gold" href="#">Book a consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="fgrid">
+          <div><p class="fbrand">MAISON<i> · </i>LONGÉVITÉ</p><p style="color:rgba(255,255,255,0.6);max-width:32ch">Refined, science-led medical care in a discreet, premium setting.</p></div>
+          <div><p class="ftitle">Explore</p><ul><li><a href="#">Method</a></li><li><a href="#">Services</a></li><li><a href="#">The Doctor</a></li><li><a href="#">Contact</a></li></ul></div>
+          <div><p class="ftitle">Contact</p><ul><li>Bucharest, Romania</li><li>maisonlongevite.ro</li><li>hello@maisonlongevite.ro</li></ul></div>
+        </div>
+        <div class="fbottom"><span>&copy; 2026 Maison Longévité. All rights reserved.</span><span>Mockup B — Ivory &amp; Gold</span></div>
+      </div>
+    </footer>
+
+    <script>
+      const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
+      document.querySelectorAll("[data-r]").forEach(el => io.observe(el));
+    </script>
+  </body>
+</html>

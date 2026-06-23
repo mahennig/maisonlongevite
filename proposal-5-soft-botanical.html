@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propunere 5 — Soft Botanical · Maison Longévité</title>
+    <meta name="description" content="Wellness cald & organic: salvie blândă, blush, forme rotunjite. Mobil-first. Conținut real Maison Longévité." />
+    <meta name="theme-color" content="#f7f4ee" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============================================================
+         PROPUNERE 5 — "SOFT BOTANICAL"
+         Wellness cald, organic & primitor (longeviteclinic.co.uk).
+         Salvie blândă, blush, crem. Forme rotunjite, blob-uri subtile.
+         Marcellus + Jost. Design system: scală modulară (1.25) +
+         spațiere 8px + meniu mobil real.
+         ============================================================ */
+      :root {
+        --bg: #f7f4ee;
+        --surface: #ffffff;
+        --surface-2: #efe9df;
+        --ink: #353730;
+        --ink-soft: #57594f;
+        --muted: #7e8073;
+        --line: #e6e0d4;
+        --sage: #87977a;
+        --sage-deep: #65775a;
+        --blush: #ead9c8;
+        --gold: #c2a36a;
+        --gold-deep: #a3854b;
+        --focus: #65775a;
+
+        --font-d: "Marcellus", Georgia, serif;
+        --font-u: "Jost", system-ui, sans-serif;
+
+        --step--2: clamp(0.72rem, 0.69rem + 0.15vw, 0.80rem);
+        --step--1: clamp(0.82rem, 0.78rem + 0.20vw, 0.92rem);
+        --step-0:  clamp(1.02rem, 0.98rem + 0.22vw, 1.14rem);
+        --step-1:  clamp(1.28rem, 1.18rem + 0.45vw, 1.58rem);
+        --step-2:  clamp(1.58rem, 1.40rem + 0.85vw, 2.20rem);
+        --step-3:  clamp(2.00rem, 1.68rem + 1.45vw, 3.10rem);
+        --step-4:  clamp(2.45rem, 1.95rem + 2.35vw, 4.20rem);
+        --step-5:  clamp(2.95rem, 2.15rem + 3.55vw, 5.40rem);
+
+        --sp-1: 0.5rem; --sp-2: 0.75rem; --sp-3: 1rem; --sp-4: 1.5rem;
+        --sp-5: 2rem; --sp-6: 3rem; --sp-7: 4rem; --sp-8: 6rem; --sp-9: 8rem;
+
+        --maxw: 1180px;
+        --pad: clamp(1.15rem, 4vw, 2rem);
+        --radius: 28px;
+        --pill: 999px;
+        --shadow: 0 34px 70px -42px rgba(53, 55, 48, 0.35);
+        --ease: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+      body { font-family: var(--font-u); font-weight: 300; color: var(--ink-soft); background: var(--bg); line-height: 1.8; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+      body.no-scroll { overflow: hidden; }
+      h1, h2, h3, h4 { font-family: var(--font-d); font-weight: 400; line-height: 1.14; color: var(--ink); }
+      p { color: var(--muted); max-width: 64ch; }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+
+      .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
+      .section { padding-block: clamp(3.5rem, 8vw, var(--sp-9)); position: relative; }
+      .eyebrow { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--step--2); font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: var(--sp-4); }
+      .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+      .center .eyebrow { justify-content: center; }
+      .rule { width: 60px; height: 2px; border-radius: 2px; background: var(--gold); margin: var(--sp-4) 0; }
+      .center { text-align: center; } .center p { margin-inline: auto; } .center .rule { margin-inline: auto; }
+      .head { max-width: 720px; margin-bottom: var(--sp-7); }
+      h2 { font-size: var(--step-4); }
+      .lead { font-size: var(--step-1); color: var(--ink-soft); }
+
+      .btn { display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 500; font-size: var(--step--1); letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2rem; border-radius: var(--pill); transition: var(--ease); cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
+      .btn-primary { background: var(--sage-deep); color: #fff; }
+      .btn-primary:hover { background: var(--ink); transform: translateY(-2px); }
+      .btn-ghost { border-color: var(--sage); color: var(--ink); background: transparent; }
+      .btn-ghost:hover { background: var(--sage); color: #fff; }
+
+      .site-header { position: sticky; top: 0; z-index: 60; background: rgba(247, 244, 238, 0.82); backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: var(--ease); }
+      .site-header.scrolled { border-bottom-color: var(--line); background: rgba(247, 244, 238, 0.95); }
+      .nav { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); height: 82px; }
+      .brand { font-family: var(--font-d); font-weight: 400; font-size: var(--step-2); letter-spacing: 0.03em; color: var(--ink); }
+      .brand i { color: var(--gold); font-style: normal; }
+      .nav-links { display: flex; gap: var(--sp-5); list-style: none; }
+      .nav-links a { font-size: var(--step--1); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color var(--ease); position: relative; }
+      .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; border-radius: 2px; background: var(--gold); transition: width var(--ease); }
+      .nav-links a:hover { color: var(--ink); } .nav-links a:hover::after { width: 100%; }
+      .nav-cta { display: inline-flex; }
+      .nav-toggle { display: none; align-items: center; justify-content: center; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: var(--pill); background: var(--surface); cursor: pointer; color: var(--ink); }
+      .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { content: ""; display: block; width: 18px; height: 1.6px; background: currentColor; transition: var(--ease); }
+      .nav-toggle span::before { transform: translateY(-6px); } .nav-toggle span::after { transform: translateY(4.6px); }
+
+      .mobile-nav { position: fixed; inset: 0; z-index: 70; background: rgba(247, 244, 238, 0.98); backdrop-filter: blur(8px); transform: translateY(-100%); transition: transform var(--ease); display: flex; flex-direction: column; padding: var(--pad); }
+      .mobile-nav.open { transform: translateY(0); }
+      .mobile-nav-top { display: flex; align-items: center; justify-content: space-between; height: 82px; }
+      .mobile-close { width: 46px; height: 46px; border: 1px solid var(--line); border-radius: var(--pill); background: var(--surface); color: var(--ink); cursor: pointer; font-size: 1.4rem; line-height: 1; }
+      .mobile-links { list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-6); }
+      .mobile-links a { font-family: var(--font-d); font-weight: 400; font-size: var(--step-3); color: var(--ink); padding-block: 0.4rem; border-bottom: 1px solid var(--line); display: block; }
+      .mobile-links a:hover { color: var(--sage-deep); }
+      .mobile-foot { margin-top: auto; padding-top: var(--sp-5); color: var(--muted); font-size: var(--step--1); display: grid; gap: 0.4rem; }
+      .mobile-foot a { color: var(--sage-deep); }
+
+      .hero { position: relative; overflow: hidden; }
+      .hero::before { content: ""; position: absolute; top: -160px; right: -120px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(135,151,122,0.22), transparent 70%); }
+      .hero::after { content: ""; position: absolute; bottom: -180px; left: -140px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(234,217,200,0.5), transparent 70%); }
+      .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, var(--sp-8)); align-items: center; padding-block: clamp(3rem, 8vw, var(--sp-9)); position: relative; }
+      .hero h1 { font-size: var(--step-5); margin-bottom: var(--sp-4); }
+      .hero h1 em { font-style: normal; color: var(--sage-deep); }
+      .hero p { font-size: var(--step-1); margin-bottom: var(--sp-5); max-width: 46ch; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+      .hero-media { aspect-ratio: 4/5; border-radius: 200px 200px 28px 28px; background: linear-gradient(160deg, #dde3d3, #e9dccb); position: relative; box-shadow: var(--shadow); }
+      .hero-media::after { content: "Fotografie hero / portret"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--sage-deep); opacity: 0.55; font-size: var(--step--2); letter-spacing: 0.2em; text-transform: uppercase; text-align: center; padding: 1rem; }
+
+      .statement { text-align: center; max-width: 940px; margin-inline: auto; }
+      .statement p { font-family: var(--font-d); font-weight: 400; font-size: var(--step-3); line-height: 1.36; color: var(--ink); max-width: none; }
+      .statement p b { color: var(--sage-deep); }
+
+      .pills { display: flex; flex-wrap: wrap; gap: var(--sp-3); justify-content: center; }
+      .pill { background: var(--surface); border: 1px solid var(--line); border-radius: var(--pill); padding: 0.85rem 1.5rem; font-size: var(--step-0); color: var(--ink); display: inline-flex; align-items: center; gap: 0.6rem; transition: var(--ease); }
+      .pill:hover { border-color: var(--sage); transform: translateY(-3px); }
+      .pill .n { font-family: var(--font-d); color: var(--gold-deep); }
+
+      .svc { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+      .svc-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--sp-5); transition: var(--ease); }
+      .svc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+      .svc-card .ic { width: 54px; height: 54px; border-radius: 50%; background: var(--blush); color: var(--sage-deep); display: grid; place-items: center; margin-bottom: var(--sp-4); }
+      .svc-card .ic svg { width: 26px; height: 26px; }
+      .svc-card h3 { font-size: var(--step-2); margin-bottom: var(--sp-2); }
+      .svc-card p { font-size: var(--step-0); }
+
+      .doctor { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 5vw, var(--sp-8)); align-items: center; background: var(--surface); border-radius: var(--radius); padding: clamp(1.5rem, 4vw, var(--sp-7)); box-shadow: var(--shadow); }
+      .doctor-media { aspect-ratio: 1/1; border-radius: 50%; background: linear-gradient(160deg, #dde3d3, #e9dccb); position: relative; }
+      .doctor-media::after { content: "Dr. Mihaela Marinescu"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--sage-deep); opacity: 0.55; font-size: var(--step--2); letter-spacing: 0.14em; text-transform: uppercase; text-align: center; }
+      .doctor blockquote { font-family: var(--font-d); font-weight: 400; font-size: var(--step-3); line-height: 1.34; color: var(--ink); margin-bottom: var(--sp-4); }
+      .doctor cite { font-style: normal; font-size: var(--step--1); letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage-deep); }
+
+      .cta-band { background: linear-gradient(140deg, var(--sage-deep), var(--sage)); color: #fff; border-radius: var(--radius); padding: clamp(3rem, 7vw, var(--sp-8)) var(--pad); text-align: center; }
+      .cta-band .eyebrow { color: #e3ecdc; justify-content: center; } .cta-band .eyebrow::before { background: var(--blush); }
+      .cta-band h2 { color: #fff; font-size: var(--step-4); margin-bottom: var(--sp-4); }
+      .cta-band p { color: rgba(255,255,255,0.88); margin-inline: auto; margin-bottom: var(--sp-5); }
+      .cta-meta { display: flex; gap: var(--sp-5); justify-content: center; flex-wrap: wrap; margin-top: var(--sp-5); color: rgba(255,255,255,0.85); font-size: var(--step-0); }
+      .cta-meta a { color: #f3e7d4; }
+
+      footer { background: var(--surface-2); border-top: 1px solid var(--line); padding-block: var(--sp-7) var(--sp-4); }
+      .fgrid { display: grid; grid-template-columns: 1.7fr 1fr 1.3fr; gap: var(--sp-5); padding-bottom: var(--sp-5); border-bottom: 1px solid var(--line); }
+      .fbrand { font-family: var(--font-d); font-weight: 400; font-size: var(--step-2); color: var(--ink); margin-bottom: var(--sp-3); }
+      .fbrand i { color: var(--gold); font-style: normal; }
+      .ftitle { font-size: var(--step--2); letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: var(--sp-3); }
+      footer ul { list-style: none; } footer li { margin-bottom: 0.55rem; font-size: var(--step-0); color: var(--muted); }
+      footer li a:hover { color: var(--sage-deep); }
+      .fbottom { padding-top: var(--sp-4); font-size: var(--step--2); letter-spacing: 0.05em; color: var(--muted); display: flex; justify-content: space-between; gap: var(--sp-3); }
+
+      [data-r] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+      [data-r].in { opacity: 1; transform: none; }
+
+      @media (max-width: 980px) {
+        .hero-grid, .doctor { grid-template-columns: 1fr; }
+        .hero-media { order: -1; max-width: 400px; margin-inline: auto; }
+        .doctor-media { max-width: 320px; margin-inline: auto; }
+        .svc { grid-template-columns: 1fr 1fr; }
+        .fgrid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 820px) { .nav-links, .nav-cta { display: none; } .nav-toggle { display: inline-flex; } }
+      @media (max-width: 560px) {
+        .svc { grid-template-columns: 1fr; }
+        .fgrid { grid-template-columns: 1fr; }
+        .fbottom { flex-direction: column; text-align: center; }
+        .cta-meta { flex-direction: column; gap: var(--sp-2); }
+      }
+      @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } [data-r] { opacity: 1 !important; transform: none !important; transition: none !important; } }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="wrap nav">
+        <a class="brand" href="#top">Maison<i> · </i>Longévité</a>
+        <ul class="nav-links">
+          <li><a href="#metoda">Metoda</a></li>
+          <li><a href="#servicii">Servicii</a></li>
+          <li><a href="#medic">Echipa</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="#contact">Programează</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobileNav"><span></span></button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <div class="mobile-nav-top">
+        <a class="brand" href="#top" data-close>Maison<i> · </i>Longévité</a>
+        <button class="mobile-close" id="navClose" aria-label="Închide meniul">&times;</button>
+      </div>
+      <ul class="mobile-links">
+        <li><a href="#metoda" data-close>Metoda</a></li>
+        <li><a href="#servicii" data-close>Servicii</a></li>
+        <li><a href="#medic" data-close>Echipa medicală</a></li>
+        <li><a href="#contact" data-close>Contact</a></li>
+      </ul>
+      <div class="mobile-foot">
+        <a href="tel:0790869158">0790 869 158</a>
+        <a href="mailto:office@maisonlongevite.ro">office@maisonlongevite.ro</a>
+        <span>București, Sector 1 — Complex Win Herăstrău</span>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div data-r>
+            <span class="eyebrow">Medicina longevității</span>
+            <h1>Centru medical de excelență în <em>medicina longevității</em></h1>
+            <p>Sănătatea abordată integrativ, personalizat și pe termen lung — o casă a longevității, primitoare și dedicată calității vieții.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Programează o consultație</a>
+              <a class="btn btn-ghost" href="#metoda">Descoperă Metoda</a>
+            </div>
+          </div>
+          <div class="hero-media" data-r></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap statement center" data-r>
+          <span class="eyebrow">Filozofia noastră</span>
+          <p>Longevitatea nu înseamnă doar ani în plus, ci ani trăiți cu <b>claritate, energie și sens</b>.</p>
+        </div>
+      </section>
+
+      <section class="section" id="metoda" style="background:var(--surface)">
+        <div class="wrap">
+          <div class="head center" data-r>
+            <span class="eyebrow">Metoda Maison Longévité</span>
+            <h2>Abordare total-health, de la fizic la molecular</h2>
+            <div class="rule"></div>
+            <p>Cele opt dimensiuni evaluate pentru un plan personalizat și echilibrat.</p>
+          </div>
+          <div class="pills" data-r>
+            <span class="pill"><span class="n">01</span> Evaluare, stil de viață &amp; biomarkeri</span>
+            <span class="pill"><span class="n">02</span> Vârsta biologică și metabolică</span>
+            <span class="pill"><span class="n">03</span> Nutriție personalizată</span>
+            <span class="pill"><span class="n">04</span> Somn și ritm biologic</span>
+            <span class="pill"><span class="n">05</span> Management emoțional</span>
+            <span class="pill"><span class="n">06</span> Funcții cognitive</span>
+            <span class="pill"><span class="n">07</span> Sănătatea și regenerarea pielii</span>
+            <span class="pill"><span class="n">08</span> Medicină personalizată de gen</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="servicii">
+        <div class="wrap">
+          <div class="head center" data-r>
+            <span class="eyebrow">Servicii</span>
+            <h2>Specialități integrate medical</h2>
+            <div class="rule"></div>
+          </div>
+          <div class="svc">
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s-7-4.3-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.7-9 9-9 9z"/></svg></div><h3>Geriatrie &amp; Gerontologie</h3><p>Management medical pentru o îmbătrânire sănătoasă și funcțională.</p></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg></div><h3>Dermatologie estetică &amp; Dermatovenerologie</h3><p>Sănătatea pielii, integrată medical ca parte a longevității.</p></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3v18M5 8l7-5 7 5"/></svg></div><h3>Medicina Longevității / Slow-Aging</h3><p>Planuri personalizate pe date biologice și monitorizare în timp.</p></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 3h12l-1 7a5 5 0 01-10 0z"/><path d="M9 21h6"/></svg></div><h3>Nutriție personalizată</h3><p>Optimizarea metabolismului prin recomandări adaptate profilului tău.</p></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2l2 6 6 .5-4.5 4 1.5 6-5-3.2-5 3.2 1.5-6L4 8.5 10 8z"/></svg></div><h3>Estetică Regenerativă</h3><p>Proceduri regenerative, integrate ca elemente ale longevității.</p></div>
+            <div class="svc-card" data-r><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9 3h6v5l4 9a2 2 0 01-2 3H7a2 2 0 01-2-3l4-9z"/></svg></div><h3>Recoltare analize laborator</h3><p>Biomarkeri și monitorizare, baza fiecărui plan de longevitate.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="medic" style="background:var(--surface)">
+        <div class="wrap">
+          <div class="doctor" data-r>
+            <div class="doctor-media"></div>
+            <div>
+              <span class="eyebrow">Director Medical</span>
+              <blockquote>„Maison Longévité este o casă a longevității, un loc în care învățăm să avem grijă de timp.”</blockquote>
+              <p>Îmbătrânirea este un proces care poate fi înțeles și ghidat printr-o medicină personalizată, în care prevenția și calitatea vieții devin priorități reale.</p>
+              <cite>— Dr. Mihaela Marinescu, Director Medical</cite>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="wrap">
+          <div class="cta-band" data-r>
+            <span class="eyebrow">Programări</span>
+            <h2>Programați o consultație</h2>
+            <p class="lead">Completați formularul și vă vom contacta pentru stabilirea detaliilor programării solicitate.</p>
+            <div class="hero-actions" style="justify-content:center">
+              <a class="btn btn-primary" href="tel:0790869158" style="background:#fff;color:var(--sage-deep)">Sunați acum</a>
+              <a class="btn btn-ghost" href="mailto:office@maisonlongevite.ro" style="border-color:rgba(255,255,255,0.6);color:#fff">Scrieți-ne</a>
+            </div>
+            <div class="cta-meta">
+              <span><a href="tel:0790869158">0790 869 158</a></span>
+              <span><a href="mailto:office@maisonlongevite.ro">office@maisonlongevite.ro</a></span>
+              <span>București, Sector 1 — Complex Win Herăstrău</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="fgrid">
+          <div>
+            <p class="fbrand">Maison<i> · </i>Longévité</p>
+            <p style="max-width:36ch">Centru medical de excelență în medicina longevității. Sănătate abordată integrativ, personalizat și pe termen lung.</p>
+          </div>
+          <div>
+            <p class="ftitle">Navigare</p>
+            <ul><li><a href="#metoda">Metoda</a></li><li><a href="#servicii">Servicii</a></li><li><a href="#medic">Echipa</a></li><li><a href="#contact">Contact</a></li></ul>
+          </div>
+          <div>
+            <p class="ftitle">Contact</p>
+            <ul>
+              <li>București, Sector 1, Intrarea Gliei Nr. 18 — Complex Win Herăstrău</li>
+              <li><a href="tel:0790869158">0790 869 158</a></li>
+              <li><a href="mailto:office@maisonlongevite.ro">office@maisonlongevite.ro</a></li>
+              <li>Facebook · Instagram · WhatsApp</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fbottom"><span>© 2026 Maison Longévité. Toate drepturile rezervate.</span><span>Propunere 5 — Soft Botanical</span></div>
+      </div>
+    </footer>
+
+    <script>
+      const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
+      document.querySelectorAll("[data-r]").forEach(el => io.observe(el));
+      const header = document.querySelector(".site-header");
+      const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+      window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+      const body = document.body, nav = document.getElementById("mobileNav"), toggle = document.getElementById("navToggle"), close = document.getElementById("navClose");
+      const openNav = () => { nav.classList.add("open"); nav.setAttribute("aria-hidden","false"); toggle.setAttribute("aria-expanded","true"); body.classList.add("no-scroll"); };
+      const closeNav = () => { nav.classList.remove("open"); nav.setAttribute("aria-hidden","true"); toggle.setAttribute("aria-expanded","false"); body.classList.remove("no-scroll"); };
+      toggle.addEventListener("click", openNav); close.addEventListener("click", closeNav);
+      nav.querySelectorAll("[data-close]").forEach(a => a.addEventListener("click", closeNav));
+      document.addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("open")) closeNav(); });
+    </script>
+  </body>
+</html>
